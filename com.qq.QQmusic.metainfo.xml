@@ -22,7 +22,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>The main QQmusic window</caption>
-      <image type="source">https://y.qq.com/music/common/upload/t_cm3_photo_publish/3310857.png</image>
+      <image type="source">https://raw.githubusercontent.com/flathub/com.qq.QQmusic/master/screenshots/1.png</image>
     </screenshot>
   </screenshots>
   <releases>
