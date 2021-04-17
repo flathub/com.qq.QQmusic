@@ -67,5 +67,5 @@ modules:
             - install -D -m 644 -t /app/share/applications/ com.qq.QQmusic.desktop
             - install -D -m 644 -t /app/share/metainfo/ com.qq.QQmusic.metainfo.xml
             # Use to extract deb extra file
-            - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-2.35.1.so
+            - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-*.so
             - install -D -t /app/bin/ /usr/bin/ar
