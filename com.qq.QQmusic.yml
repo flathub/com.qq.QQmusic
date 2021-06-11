@@ -51,9 +51,9 @@ modules:
             -
                 type: extra-data
                 filename: qqmusic_amd64.deb
-                url: http://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.0.6_amd64.deb
-                sha256: 42e0663a5439286e64adfc035bcbb82731548bab25f5e628fb085b050a5926c2
-                size: 74527272
+                url: http://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.0.9_amd64.deb
+                sha256: 4ae4a984bd4a6c0f395c5a295c2453388cacb8ece984a93d18d3e6004eba531f
+                size: 76450896
                 x-checker-data:
                     type: html
                     url: https://y.qq.com/download/download.html
@@ -67,5 +67,5 @@ modules:
             - install -D -m 644 -t /app/share/applications/ com.qq.QQmusic.desktop
             - install -D -m 644 -t /app/share/metainfo/ com.qq.QQmusic.metainfo.xml
             # Use to extract deb extra file
-            - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-2.35.1.so
+            - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-*.so
             - install -D -t /app/bin/ /usr/bin/ar
