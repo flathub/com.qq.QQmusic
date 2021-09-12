@@ -29,14 +29,14 @@ modules:
                 type: script
                 commands:
                     - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-                    - exec zypak-wrapper /app/extra/QQmusic/qqmusic "$@"
+                    - exec zypak-wrapper /app/extra/qqmusic/qqmusic "$@"
                 dest-filename: qqmusic.sh
             -
                 type: script
                 commands:
                     - ar x qqmusic_amd64.deb
                     - tar -xf data.tar.xz
-                    - mv opt/QQmusic .
+                    - mv opt/qqmusic .
                     - rm -rf opt usr control.tar.gz data.tar.xz debian-binary
                 dest-filename: apply_extra
             -
@@ -51,9 +51,9 @@ modules:
             -
                 type: extra-data
                 filename: qqmusic_amd64.deb
-                url: http://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.0.9_amd64.deb
-                sha256: 4ae4a984bd4a6c0f395c5a295c2453388cacb8ece984a93d18d3e6004eba531f
-                size: 76450896
+                url: http://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.1_amd64.deb
+                sha256: cc5c2953f2c8ec2c745931d70522c3ccd2e151fd642e24e93a775e12fd80668d
+                size: 77754318
                 x-checker-data:
                     type: html
                     url: https://y.qq.com/download/download.html
