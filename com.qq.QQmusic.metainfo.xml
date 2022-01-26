@@ -26,9 +26,10 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.1.2" date="2022-01-26"/>
     <release date="2021-09-06" version="1.1.1"/>
     <release date="2021-01-18" version="1.0.6"/>
   </releases>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
   <update_contact>wsgalaxy@qq.com</update_contact>
 </component>

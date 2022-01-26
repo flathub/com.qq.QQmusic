@@ -8,65 +8,58 @@ command: qqmusic.sh
 separate-locales: false
 
 finish-args:
-    - '--share=ipc'
-    - '--share=network'
-    - '--socket=x11'
-    - '--socket=wayland'
-    - '--socket=pulseaudio'
-    - '--device=dri'
-    - '--talk-name=org.freedesktop.Notifications'
-    - '--own-name=org.kde.*'
-    - '--own-name=org.mpris.MediaPlayer2.chromium.*'
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=dri
+  - --talk-name=org.freedesktop.Notifications
+  - --own-name=org.kde.*
+  - --own-name=org.mpris.MediaPlayer2.chromium.*
 
 build-options:
-    strip: false
-    no-debuginfo: true
+  strip: false
+  no-debuginfo: true
 
 modules:
-    -
-        name: qqmusic
-        sources:
-            -
-                type: script
-                commands:
-                    - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-                    - exec zypak-wrapper /app/extra/qqmusic/qqmusic "$@"
-                dest-filename: qqmusic.sh
-            -
-                type: script
-                commands:
-                    - ar x qqmusic_amd64.deb
-                    - tar -xf data.tar.xz
-                    - mv opt/qqmusic .
-                    - rm -rf opt usr control.tar.gz data.tar.xz debian-binary
-                dest-filename: apply_extra
-            -
-                type: file
-                path: com.qq.QQmusic.desktop
-            -
-                type: file
-                path: com.qq.QQmusic.png
-            -
-                type: file
-                path: com.qq.QQmusic.metainfo.xml
-            -
-                type: extra-data
-                filename: qqmusic_amd64.deb
-                url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.1_amd64.deb
-                sha256: cc5c2953f2c8ec2c745931d70522c3ccd2e151fd642e24e93a775e12fd80668d
-                size: 77754318
-                x-checker-data:
-                    type: html
-                    url: https://y.qq.com/download/download.html
-                    version-pattern: linux/deb/qqmusic_(\S*)_amd64.deb
-                    url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64.deb
-        buildsystem: simple
-        build-commands:
-            - install -D -m 755 -t /app/bin/ qqmusic.sh
-            - install -D -m 755 -t /app/bin/ apply_extra
-            - install -D -m 644 -t /app/share/icons/hicolor/256x256/apps/ com.qq.QQmusic.png
-            - install -D -m 644 -t /app/share/applications/ com.qq.QQmusic.desktop
-            - install -D -m 644 -t /app/share/metainfo/ com.qq.QQmusic.metainfo.xml
+  - name: qqmusic
+    sources:
+      - type: script
+        commands:
+          - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
+          - exec zypak-wrapper /app/extra/qqmusic/qqmusic "$@"
+        dest-filename: qqmusic.sh
+      - type: script
+        commands:
+          - ar x qqmusic_amd64.deb
+          - tar -xf data.tar.xz
+          - mv opt/qqmusic .
+          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary
+        dest-filename: apply_extra
+      - type: file
+        path: com.qq.QQmusic.desktop
+      - type: file
+        path: com.qq.QQmusic.png
+      - type: file
+        path: com.qq.QQmusic.metainfo.xml
+      - type: extra-data
+        filename: qqmusic_amd64.deb
+        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.2_amd64.deb
+        sha256: ca6bfbd1ef8cb6694d32827b732399a70887a5583870c56a21a45cb3956273ec
+        size: 77737192
+        x-checker-data:
+          type: html
+          url: https://y.qq.com/download/download.html
+          version-pattern: linux/deb/qqmusic_(\S*)_amd64.deb
+          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64.deb
+    buildsystem: simple
+    build-commands:
+      - install -D -m 755 -t /app/bin/ qqmusic.sh
+      - install -D -m 755 -t /app/bin/ apply_extra
+      - install -D -m 644 -t /app/share/icons/hicolor/256x256/apps/ com.qq.QQmusic.png
+      - install -D -m 644 -t /app/share/applications/ com.qq.QQmusic.desktop
+      - install -D -m 644 -t /app/share/metainfo/ com.qq.QQmusic.metainfo.xml
             # Use to extract deb extra file
-            - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-*.so
-            - install -D -t /app/bin/ /usr/bin/ar
+      - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-*.so
+      - install -D -t /app/bin/ /usr/bin/ar
