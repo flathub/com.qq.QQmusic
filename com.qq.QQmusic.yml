@@ -35,7 +35,7 @@ modules:
           - ar x qqmusic_amd64.deb
           - tar -xf data.tar.xz
           - mv opt/qqmusic .
-          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary
+          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary qqmusic_amd64.deb
         dest-filename: apply_extra
       - type: file
         path: com.qq.QQmusic.desktop
