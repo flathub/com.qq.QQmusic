@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=QQmusic
+Name[zh_CN]=QQ音乐
 Exec=qqmusic.sh %U
 Terminal=false
 Type=Application
