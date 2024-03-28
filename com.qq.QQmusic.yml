@@ -1,9 +1,9 @@
 app-id: com.qq.QQmusic
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '21.08'
+base-version: '23.08'
 command: qqmusic.sh
 separate-locales: false
 
@@ -28,14 +28,14 @@ modules:
       - type: script
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/extra/qqmusic/qqmusic "$@"
+          - exec zypak-wrapper /app/extra/qqmusic/qqmusic --no-sandbox "$@"
         dest-filename: qqmusic.sh
       - type: script
         commands:
-          - ar x qqmusic_amd64.deb
+          - ar x qqmusic_amd64_.deb
           - tar -xf data.tar.xz
           - mv opt/qqmusic .
-          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary qqmusic_amd64.deb
+          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary qqmusic_amd64_.deb
         dest-filename: apply_extra
       - type: file
         path: com.qq.QQmusic.desktop
@@ -44,15 +44,15 @@ modules:
       - type: file
         path: com.qq.QQmusic.metainfo.xml
       - type: extra-data
-        filename: qqmusic_amd64.deb
-        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64.deb
+        filename: qqmusic_amd64_.deb
+        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64_.deb
         sha256: c13b4ef344bca38fc47950af07368de31b48dfe9928538cd1e9ab8d5ec5f3fe8
         size: 77742406
         x-checker-data:
           type: html
           url: https://y.qq.com/download/download.html
-          version-pattern: linux/deb/qqmusic_(\S*)_amd64.deb
-          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64.deb
+          version-pattern: linux/deb/qqmusic_(\S*)_amd64_.deb
+          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64_.deb
     buildsystem: simple
     build-commands:
       - install -D -m 755 -t /app/bin/ qqmusic.sh
@@ -62,4 +62,5 @@ modules:
       - install -D -m 644 -t /app/share/metainfo/ com.qq.QQmusic.metainfo.xml
             # Use to extract deb extra file
       - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-*.so
+      - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libsframe.so.*
       - install -D -t /app/bin/ /usr/bin/ar
