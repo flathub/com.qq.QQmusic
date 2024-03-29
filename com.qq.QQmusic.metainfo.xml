@@ -14,10 +14,9 @@
   <url type="help">https://y.qq.com/download/welcome_pc_v15/index.html?ADTAG=YQQ</url>
   <description>
     <p>QQMusic is an online music streaming service operating in China.</p>
+    <p xml:lang="zh-cn">尽享海量高品质曲库。</p>
     <p>NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.</p>
-  </description>
-  <description xml:lang="zh-cn">
-    <p>尽享海量高品质曲库。</p>
+    <p xml:lang="zh-cn">注意：此 Flatpak 并不是腾讯官方版本。</p>
   </description>
   <screenshots>
     <screenshot type="default">
