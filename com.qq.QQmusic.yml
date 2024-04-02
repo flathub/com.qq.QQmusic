@@ -45,14 +45,14 @@ modules:
         path: com.qq.QQmusic.metainfo.xml
       - type: extra-data
         filename: qqmusic_amd64.deb
-        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64.deb
+        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64_.deb
         sha256: c13b4ef344bca38fc47950af07368de31b48dfe9928538cd1e9ab8d5ec5f3fe8
         size: 77742406
         x-checker-data:
           type: html
           url: https://y.qq.com/download/download.html
           version-pattern: linux/deb/qqmusic_(\S*)_amd64.deb
-          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64.deb
+          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64_.deb
     buildsystem: simple
     build-commands:
       - install -D -m 755 -t /app/bin/ qqmusic.sh
