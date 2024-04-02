@@ -35,7 +35,7 @@ modules:
           - ar x qqmusic_amd64.deb
           - tar -xf data.tar.xz
           - mv opt/qqmusic .
-          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary
+          - rm -rf opt usr control.tar.gz data.tar.xz debian-binary qqmusic_amd64.deb
         dest-filename: apply_extra
       - type: file
         path: com.qq.QQmusic.desktop
@@ -43,16 +43,8 @@ modules:
         path: com.qq.QQmusic.png
       - type: file
         path: com.qq.QQmusic.metainfo.xml
-      - type: extra-data
-        filename: qqmusic_amd64.deb
-        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64_.deb
-        sha256: c13b4ef344bca38fc47950af07368de31b48dfe9928538cd1e9ab8d5ec5f3fe8
-        size: 77742406
-        x-checker-data:
-          type: html
-          url: https://y.qq.com/download/download.html
-          version-pattern: linux/deb/qqmusic_(\S*)_amd64_.deb
-          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64_.deb
+      - type: file
+        path: qqmusic_amd64.deb
     buildsystem: simple
     build-commands:
       - install -D -m 755 -t /app/bin/ qqmusic.sh
