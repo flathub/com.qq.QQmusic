@@ -1,9 +1,9 @@
 app-id: com.qq.QQmusic
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '21.08'
+base-version: '23.08'
 command: qqmusic.sh
 separate-locales: false
 
@@ -11,11 +11,9 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=x11
-  - --socket=wayland
   - --socket=pulseaudio
   - --device=dri
   - --talk-name=org.freedesktop.Notifications
-  - --own-name=org.kde.*
   - --own-name=org.mpris.MediaPlayer2.chromium.*
 
 build-options:
@@ -28,7 +26,9 @@ modules:
       - type: script
         commands:
           - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/extra/qqmusic/qqmusic "$@"
+          # Need --disable-gpu-sandbox to run or crash:
+          # https://github.com/Automattic/simplenote-electron/issues/3044#issuecomment-1333893363
+          - exec zypak-wrapper /app/extra/qqmusic/qqmusic --disable-gpu-sandbox "$@"
         dest-filename: qqmusic.sh
       - type: script
         commands:
@@ -45,14 +45,14 @@ modules:
         path: com.qq.QQmusic.metainfo.xml
       - type: extra-data
         filename: qqmusic_amd64.deb
-        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64.deb
+        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64_.deb
         sha256: c13b4ef344bca38fc47950af07368de31b48dfe9928538cd1e9ab8d5ec5f3fe8
         size: 77742406
         x-checker-data:
           type: html
           url: https://y.qq.com/download/download.html
-          version-pattern: linux/deb/qqmusic_(\S*)_amd64.deb
-          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64.deb
+          version-pattern: linux/deb/qqmusic_(\S*)_amd64_.deb
+          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64_.deb
     buildsystem: simple
     build-commands:
       - install -D -m 755 -t /app/bin/ qqmusic.sh
@@ -60,6 +60,6 @@ modules:
       - install -D -m 644 -t /app/share/icons/hicolor/256x256/apps/ com.qq.QQmusic.png
       - install -D -m 644 -t /app/share/applications/ com.qq.QQmusic.desktop
       - install -D -m 644 -t /app/share/metainfo/ com.qq.QQmusic.metainfo.xml
-            # Use to extract deb extra file
-      - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/libbfd-*.so
+      # Use to extract deb extra file
+      - install -D -t /app/lib/ /usr/lib/x86_64-linux-gnu/{libbfd-*.so,libsframe.so.1}
       - install -D -t /app/bin/ /usr/bin/ar
