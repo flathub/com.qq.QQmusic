@@ -45,9 +45,9 @@ modules:
         path: com.qq.QQmusic.metainfo.xml
       - type: extra-data
         filename: qqmusic_amd64.deb
-        url: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_1.1.5_amd64_.deb
-        sha256: c13b4ef344bca38fc47950af07368de31b48dfe9928538cd1e9ab8d5ec5f3fe8
-        size: 77742406
+        url: https://dldir1.qq.com/music/clntupate/linux/qqmusic_1.1.6_amd64.deb
+        sha256: 3e26738c779de0a368fe3d261d71f33032a501b1e9d07549d7887836d8526a48
+        size: 75664770
         x-checker-data:
           type: html
           url: https://y.qq.com/download/download.html
