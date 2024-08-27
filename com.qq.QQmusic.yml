@@ -51,8 +51,8 @@ modules:
         x-checker-data:
           type: html
           url: https://y.qq.com/download/download.html
-          version-pattern: linux/deb/qqmusic_(\S*)_amd64_.deb
-          url-template: https://dldir1.qq.com/music/clntupate/linux/deb/qqmusic_${version}_amd64_.deb
+          version-pattern: linux/qqmusic_(\S*)_amd64.deb
+          url-template: https://dldir1.qq.com/music/clntupate/linux/qqmusic_${version}_amd64.deb
     buildsystem: simple
     build-commands:
       - install -D -m 755 -t /app/bin/ qqmusic.sh
