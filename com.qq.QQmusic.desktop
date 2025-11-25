@@ -1,9 +1,11 @@
 [Desktop Entry]
 Name=QQ Music
+Name[zh_CN]=QQ音乐
 Exec=qqmusic.sh %U
 Terminal=false
 Type=Application
 Icon=com.qq.QQmusic
 StartupWMClass=QQMusic
 Comment=Tencent QQMusic
+Comment[zh_CN]=QQ音乐
 Categories=AudioVideo;
