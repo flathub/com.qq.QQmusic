@@ -3,9 +3,9 @@
   <id>com.qq.QQmusic</id>
   <provides><id>com.qq.QQmusic.desktop</id></provides>
   <launchable type="desktop-id">com.qq.QQmusic.desktop</launchable>
-  <name>QQmusic</name>
+  <name>QQ Music</name>
   <name xml:lang="zh-CN">QQ音乐</name>
-  <developer_name>tencent</developer_name>
+  <developer_name>Tencent</developer_name>
   <summary>Online music streaming service</summary>
   <summary xml:lang="zh-CN">QQ音乐</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -13,13 +13,13 @@
   <url type="homepage">https://y.qq.com/</url>
   <url type="help">https://y.qq.com/download/download.html</url>
   <description>
-    <p>QQMusic is an online music streaming service operating in China.</p>
+    <p>QQ Music is an online music streaming service operating in China.</p>
     <p>NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.</p>
     <p xml:lang="zh-CN">尽享海量高品质曲库。</p>
   </description>
   <screenshots>
     <screenshot type="default">
-      <caption>The main QQmusic window</caption>
+      <caption>The main QQ Music window</caption>
       <image>https://raw.githubusercontent.com/flathub/com.qq.QQmusic/master/screenshots/1.png</image>
     </screenshot>
   </screenshots>
