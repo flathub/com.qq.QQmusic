@@ -13,8 +13,9 @@
   <url type="homepage">https://y.qq.com/</url>
   <url type="help">https://y.qq.com/download/download.html</url>
   <description>
+    <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.**</p>
+    <p xml:lang="zh-CN">**注意：此封装器未经过腾讯验证，与腾讯没有任何关联，亦不受腾讯支持。**</p>
     <p>QQ Music is an online music streaming service operating in China.</p>
-    <p>NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.</p>
     <p xml:lang="zh-CN">尽享海量高品质曲库。</p>
   </description>
   <screenshots>
